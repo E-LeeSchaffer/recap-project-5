@@ -1,3 +1,18 @@
+## Acceptance Criteria
+
+All art pieces are displayed as a list
+Each art piece's image is displayed
+Each art piece's title is displayed
+Each art piece's artist is displayed
+
+## Tasks
+
+Fetch all art pieces with SWR in pages/index.js
+Create the component ArtPieces to render a list
+ArtPieces props: pieces
+Create the component ArtPiecePreview
+ArtPiecePreview props: image, title, artist
+
 # New Next Project
 
 ### Local Development
