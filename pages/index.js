@@ -1,4 +1,5 @@
 import { ArtPieces } from "@/components/ArtPieces";
+import { SpotLightedArtPieces } from "@/components/SpotLightedArtPieces";
 import useSWR from "swr";
 
 const fetcher = async (url) => {
@@ -18,5 +19,11 @@ export default function HomePage() {
   if (error) return <p>Error: {error.message}</p>;
   // if (!data) return <p>Data not found</p>;
 
-  return <ArtPieces pieces={pieces} />;
+  return (
+    <>
+      <h1>Art Gallery</h1>
+      <SpotLightedArtPieces pieces={pieces} />
+      <ArtPieces pieces={pieces} />
+    </>
+  );
 }
