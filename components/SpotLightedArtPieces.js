@@ -1,9 +1,10 @@
-import Image from "next/image";
+// import Image from "next/image";
+import { ArtPiecePreview } from "./ArtPiecesPreview";
 
 export function SpotLightedArtPieces({ pieces }) {
   function getRandomArtPiece(pieces) {
-    const randomPieces = Math.floor(Math.random() * pieces.length);
-    return pieces[randomPieces];
+    const randomIndex = Math.floor(Math.random() * pieces.length);
+    return pieces[randomIndex];
   }
   const result = getRandomArtPiece(pieces);
 
@@ -13,13 +14,13 @@ export function SpotLightedArtPieces({ pieces }) {
 
       {result && (
         <>
-          <Image
-            src={result.imageSource}
-            alt={result.name}
+          <ArtPiecePreview
+            image={result.imageSource}
+            title={result.name}
+            artist={result.artist}
             height={300}
             width={300}
           />
-          <p>Artist: {result.artist}</p>
         </>
       )}
     </div>
