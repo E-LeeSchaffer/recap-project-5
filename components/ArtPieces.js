@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArtPiecePreview } from "./ArtPiecesPreview";
 import styled from "styled-components";
 import ColorPalette from "./ColorPalette";
@@ -10,12 +11,14 @@ export function ArtPieces({ pieces }) {
       <StyledUl>
         {pieces.map((piece) => (
           <li key={piece.slug}>
-            <ArtPiecePreview
-              image={piece.imageSource}
-              title={piece.name}
-              artist={piece.artist}
-            />
-            <ColorPalette colors={piece.colors} />
+            <Link href={`/art-pieces/${piece.slug}`}>
+              <ArtPiecePreview
+                image={piece.imageSource}
+                title={piece.name}
+                artist={piece.artist}
+                colors={piece.colors}
+              />
+            </Link>
           </li>
         ))}
       </StyledUl>

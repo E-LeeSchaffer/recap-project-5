@@ -1,6 +1,6 @@
 // import Image from "next/image";
+import Link from "next/link";
 import { ArtPiecePreview } from "./ArtPiecesPreview";
-import ColorPalette from "./ColorPalette";
 
 export function SpotLightedArtPieces({ pieces }) {
   function getRandomArtPiece(pieces) {
@@ -15,14 +15,15 @@ export function SpotLightedArtPieces({ pieces }) {
 
       {result && (
         <>
-          <ArtPiecePreview
-            image={result.imageSource}
-            title={result.name}
-            artist={result.artist}
-            height={300}
-            width={300}
-          />
-          <ColorPalette colors={pieces.colors} />
+          <Link href={`/art-pieces/${result.slug}`}>
+            <ArtPiecePreview
+              image={result.imageSource}
+              title={result.name}
+              artist={result.artist}
+              height={300}
+              width={300}
+            />
+          </Link>
         </>
       )}
     </div>

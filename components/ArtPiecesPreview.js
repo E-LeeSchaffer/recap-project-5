@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ColorPalette from "./ColorPalette";
 
 export function ArtPiecePreview({ image, title, artist }) {
   return (
