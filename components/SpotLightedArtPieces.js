@@ -1,5 +1,6 @@
 // import Image from "next/image";
 import { ArtPiecePreview } from "./ArtPiecesPreview";
+import ColorPalette from "./ColorPalette";
 
 export function SpotLightedArtPieces({ pieces }) {
   function getRandomArtPiece(pieces) {
@@ -21,6 +22,7 @@ export function SpotLightedArtPieces({ pieces }) {
             height={300}
             width={300}
           />
+          <ColorPalette colors={pieces.colors} />
         </>
       )}
     </div>

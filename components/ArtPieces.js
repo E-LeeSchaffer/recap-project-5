@@ -1,5 +1,6 @@
 import { ArtPiecePreview } from "./ArtPiecesPreview";
 import styled from "styled-components";
+import ColorPalette from "./ColorPalette";
 
 export function ArtPieces({ pieces }) {
   return (
@@ -14,6 +15,7 @@ export function ArtPieces({ pieces }) {
               title={piece.name}
               artist={piece.artist}
             />
+            <ColorPalette colors={piece.colors} />
           </li>
         ))}
       </StyledUl>
