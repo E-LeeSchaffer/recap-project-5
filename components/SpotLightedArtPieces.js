@@ -1,4 +1,4 @@
-// import Image from "next/image";
+import Link from "next/link";
 import { ArtPiecePreview } from "./ArtPiecesPreview";
 
 export function SpotLightedArtPieces({ pieces }) {
@@ -14,13 +14,15 @@ export function SpotLightedArtPieces({ pieces }) {
 
       {result && (
         <>
-          <ArtPiecePreview
-            image={result.imageSource}
-            title={result.name}
-            artist={result.artist}
-            height={300}
-            width={300}
-          />
+          <Link href={`/art-pieces/${result.slug}`}>
+            <ArtPiecePreview
+              image={result.imageSource}
+              title={result.name}
+              artist={result.artist}
+              height={300}
+              width={300}
+            />
+          </Link>
         </>
       )}
     </div>

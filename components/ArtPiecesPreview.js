@@ -1,20 +1,44 @@
 import Image from "next/image";
-import IsFavorite from "./IsFavorite";
-import { useState } from "react";
+import styled from "styled-components";
 
-export function ArtPiecePreview({ image, title, artist }) {
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
-
+export function ArtPiecePreview({
+  image,
+  title,
+  artist,
+  isFavorite,
+  onToggleFavorite,
+}) {
   return (
-    <div>
-      <Image src={image} alt={title} height={300} width={300} />
+    <Container>
+      <StyledImage
+        src={image}
+        alt={title}
+        layout="responsive"
+        width={300}
+        height={300}
+      />
       <h3>Title: {title}</h3>
       <p>Artist: {artist}</p>
-      <IsFavorite isFavorite={isFavorite} onToggle={toggleFavorite} />
-    </div>
+      <FavoriteButton onClick={onToggleFavorite} isFavorite={isFavorite}>
+        {isFavorite ? "❤️" : "🤍"}
+      </FavoriteButton>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  text-align: center;
+`;
+
+const StyledImage = styled(Image)`
+  object-fit: cover;
+  border-radius: 8px;
+`;
+
+const FavoriteButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-top: 8px;
+`;
