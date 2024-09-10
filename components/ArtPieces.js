@@ -10,8 +10,8 @@ export function ArtPieces({ pieces }) {
 
   // to toggle one favorite piece
   function toggleFavorite(slug) {
-    setArtPiecesInfo((prevPieces) =>
-      prevPieces.map((piece) =>
+    setArtPiecesInfo((pieces) =>
+      pieces.map((piece) =>
         piece.slug === slug
           ? { ...piece, isFavorite: !piece.isFavorite }
           : piece
