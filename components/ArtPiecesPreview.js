@@ -6,7 +6,7 @@ export function ArtPiecePreview({
   title,
   artist,
   isFavorite,
-  onToggleFavorite,
+  toggleFavorite,
 }) {
   return (
     <Container>
@@ -19,7 +19,7 @@ export function ArtPiecePreview({
       />
       <h3>Title: {title}</h3>
       <p>Artist: {artist}</p>
-      <FavoriteButton onClick={onToggleFavorite} isFavorite={isFavorite}>
+      <FavoriteButton onClick={toggleFavorite} isFavorite={isFavorite}>
         {isFavorite ? "❤️" : "🤍"}
       </FavoriteButton>
     </Container>

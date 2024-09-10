@@ -1,46 +1,35 @@
 import { ArtPiecePreview } from "./ArtPiecesPreview";
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export function ArtPieces({ pieces }) {
-  const [artPiecesInfo, setArtPiecesInfo] = useState({});
+  const [artPiecesInfo, setArtPiecesInfo] = useState(pieces);
+  //chose a uniquie identifiere
 
-  useEffect(() => {
-    if (pieces) {
-      const updatedInfo = { ...artPiecesInfo };
+  //to extract the isFavorite from the uniquie identifiere
 
-      pieces.forEach((piece) => {
-        if (!updatedInfo[piece.slug]) {
-          updatedInfo[piece.slug] = { isFavorite: false };
-        }
-      });
-
-      setArtPiecesInfo(updatedInfo);
-    }
-  }, [pieces]);
-
-  const toggleFavorite = (slug) => {
-    setArtPiecesInfo((prevInfo) => ({
-      ...prevInfo,
-      [slug]: {
-        ...prevInfo[slug],
-        isFavorite: !prevInfo[slug].isFavorite,
-      },
-    }));
-  };
-
+  // to toggle one favorite piece
+  function toggleFavorite(slug) {
+    setArtPiecesInfo((prevPieces) =>
+      prevPieces.map((piece) =>
+        piece.slug === slug
+          ? { ...piece, isFavorite: !piece.isFavorite }
+          : piece
+      )
+    );
+  }
   return (
     <div>
       <h2>All Art Pieces</h2>
       <StyledUl>
-        {pieces.map((piece) => (
+        {artPiecesInfo.map((piece) => (
           <StyledLi key={piece.slug}>
             <ArtPiecePreview
               image={piece.imageSource}
               title={piece.name}
               artist={piece.artist}
-              isFavorite={artPiecesInfo[piece.slug]?.isFavorite || false}
-              onToggleFavorite={() => toggleFavorite(piece.slug)}
+              isFavorite={piece.isFavorite}
+              toggleFavorite={() => toggleFavorite(piece.slug)}
             />
           </StyledLi>
         ))}
