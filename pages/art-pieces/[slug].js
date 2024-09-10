@@ -6,7 +6,7 @@ export default function ArtPieceDetailsPage({ pieces }) {
   const { slug } = router.query;
 
   const piece = pieces?.find((piece) => piece.slug === slug);
-
+  console.log(piece);
   if (!piece) return <p>Art piece not found!</p>;
 
   return (

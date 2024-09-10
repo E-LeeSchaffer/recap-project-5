@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ColorPalette from "./ColorPalette";
 import { ArtPiecePreview } from "./ArtPiecesPreview";
 
