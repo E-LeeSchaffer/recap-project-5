@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArtPiecePreview } from "./ArtPiecesPreview";
 import styled from "styled-components";
+import ColorPalette from "./ColorPalette";
 
 export function ArtPieces({ pieces }) {
   return (
@@ -15,6 +16,7 @@ export function ArtPieces({ pieces }) {
                 image={piece.imageSource}
                 title={piece.name}
                 artist={piece.artist}
+                colors={piece.colors}
               />
             </Link>
           </li>

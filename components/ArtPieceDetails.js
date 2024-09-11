@@ -1,4 +1,5 @@
-import Image from "next/image";
+import ColorPalette from "./ColorPalette";
+import { ArtPiecePreview } from "./ArtPiecesPreview";
 
 export default function ArtPieceDetails({
   image,
@@ -8,14 +9,21 @@ export default function ArtPieceDetails({
   genre,
   onBackClick,
   buttonText,
+  colors,
 }) {
   return (
     <>
-      <Image src={image} alt={title} height={300} width={300} />;
-      <h3>{title}</h3>
-      <p>Artist: {artist}</p>
+      <ArtPiecePreview
+        image={image}
+        alt={title}
+        height={300}
+        width={300}
+        title={title}
+        artist={artist}
+      />
       <p>Year: {year}</p>
       <p>Genre: {genre}</p>
+      <ColorPalette colors={colors} />
       <button onClick={onBackClick}>{buttonText}</button>
     </>
   );

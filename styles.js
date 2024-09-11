@@ -15,10 +15,4 @@ export default createGlobalStyle`
   li {
   list-style: none;
   }
-
-  h2 {
-  text-align: center;
-  }
-
-
 `;
